@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sla-goapp
+  labels:
+    app: sla-goapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sla-goapp
+  template:
+    metadata:
+      labels:
+        app: sla-goapp
+    spec:
+      containers:
+      - name: sla-goapp
+        image: slawekraz/sla-goapp:2
+        ports:
+        - containerPort: 80
